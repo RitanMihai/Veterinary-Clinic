@@ -313,7 +313,7 @@ INSERT INTO public.animal (id, breed, species) VALUES (7, 'Sphynx ', 'Feline');
 INSERT INTO public.animal (id, breed, species) VALUES (8, 'Bengaleza', 'Feline');
 INSERT INTO public.animal (id, breed, species) VALUES (9, 'Savannah', 'Feline');
 INSERT INTO public.animal (id, breed, species) VALUES (10, 'Mixt', 'Canine');
-INSERT INTO public.animal (id, breed, species) VALUES (11, 'Mixt', 'Felline');
+INSERT INTO public.animal (id, breed, species) VALUES (11, 'Mixt', 'Feline');
 
 --
 -- Data for Name: medic; Type: TABLE DATA; Schema: public; Owner: postgres
