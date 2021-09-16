@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="VeterinaryClinicPersistence">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        
+        <class>database.model.AnimalEntity</class>
+        <class>database.model.AppointmentEntity</class>
+        <class>database.model.ClientEntity</class>
+        <class>database.model.MedicEntity</class>
+        <class>database.model.ScheduleEntity</class>
+        <class>database.model.SurgeryEntity</class>
+        <class>database.model.util.DayConverter</class>
+        <class>database.model.enums.Day</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/veterinary_clinic?stringtype=unspecified"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="toor"/>
+        </properties>
+    </persistence-unit>
+</persistence>
