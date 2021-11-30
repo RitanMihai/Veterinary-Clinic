@@ -3,7 +3,6 @@
 
     <persistence-unit name="VeterinaryClinicPersistence">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        
         <class>database.model.AnimalEntity</class>
         <class>database.model.AppointmentEntity</class>
         <class>database.model.ClientEntity</class>

@@ -33,7 +33,7 @@ public class DatabaseConnection {
         return true;
     }
 
-    public boolean initTransaction() {
+    private boolean initTransaction() {
         try {
             entityManagerFactory = Persistence.createEntityManagerFactory("VeterinaryClinicPersistence");
             entityManager = entityManagerFactory.createEntityManager();

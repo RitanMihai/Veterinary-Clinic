@@ -18,16 +18,16 @@ public class AnimalDao implements DaoI<AnimalEntity> {
         return query.getResultList();
     }
 
+    public List<String> getAllSpecies() {
+        TypedQuery<String> query = connection.getEntityManager().createQuery("SELECT a.species FROM AnimalEntity a GROUP BY a.species", String.class);
+        return query.getResultList();
+    }
+
     public List<AnimalEntity> getAllBySpecies(String species) {
         TypedQuery<AnimalEntity> query = connection
                 .getEntityManager()
                 .createQuery("SELECT a FROM AnimalEntity a WHERE a.species= :species", AnimalEntity.class)
                 .setParameter("species", species);
-        return query.getResultList();
-    }
-
-    public List<String> getAllSpecies() {
-        TypedQuery<String> query = connection.getEntityManager().createQuery("SELECT a.species FROM AnimalEntity a GROUP BY a.species", String.class);
         return query.getResultList();
     }
 

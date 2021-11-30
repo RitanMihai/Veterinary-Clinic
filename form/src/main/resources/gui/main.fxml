@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minWidth="300.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@style/bootstrap3.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MainController">
+   <children>
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Form" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+                        <TextField fx:id="firstName" onKeyPressed="#onFirstNameKeyPressed" promptText="First Name" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="firstNameWarning" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="* First name is rquired" visible="false" />
+                     </children>
+                  </VBox>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+                        <TextField fx:id="lastName" onKeyReleased="#onLastNameKeyPressed" promptText="Last Name" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="lastNameWarning" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*Last name required" visible="false" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TIN" />
+                  <TextField fx:id="tin" onKeyPressed="#onTinKeyPressed" promptText="Tax indetification number" />
+                  <Text fx:id="tinWarning" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="* Tin required" visible="false" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
+                  <TextField fx:id="phoneNumber" onKeyPressed="#onPhoneNumberKeyPressed" promptText="Phone Number" />
+                  <Text fx:id="phoneNumberWarning" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="* Phone required" visible="false" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                  <TextField fx:id="email" onKeyPressed="#onEmailKeyPressed" promptText="Email" />
+                  <Text fx:id="emailWarning" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="* Email required" visible="false" />
+               </children>
+            </VBox>
+            <GridPane alignment="CENTER_LEFT" minHeight="140.0" prefWidth="200.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="129.0" prefWidth="129.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select species" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select medic" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select surgery" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select date" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="datePicker" onAction="#onDateSelect" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select hour" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin></Text>
+                  <ComboBox fx:id="hourList" prefWidth="150.0" styleClass="vtoolbar" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></ComboBox>
+                  <ComboBox fx:id="speciesList" onAction="#onSelectSpecies" prefWidth="150.0" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="medicList" onAction="#onMedicSelected" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="surgeryList" onAction="#onSelectSurgery" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text fx:id="surgeryTime" fill="#838383" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select breed" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <ComboBox fx:id="breedList" onAction="#onSelectBreed" prefWidth="150.0" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notes to medic" />
+                  <TextArea fx:id="notes" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="TOP" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onSubmitClicked" text="Submit" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
